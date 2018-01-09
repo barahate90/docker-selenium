@@ -1,0 +1,30 @@
+#!/usr/bin/env groovy
+pipeline { 
+  agent { 
+    node { 
+      label 'docker'
+    }
+  }
+ stages {
+    stage ('Checkout Code') {
+      steps {
+        checkout scm
+      }
+    }
+    stage ('Verify Tools'){
+      steps {
+        parallel (
+        
+          docker: { sh "docker -v" }
+        )
+      }
+    }
+    stage ('Build app') {
+      steps {
+       sh "VERSION=$BUILD_TAG BUILD_ARGS="--build-arg CHROME_VERSION=google-chrome-beta" make standalone_chrome_debug"
+		
+      }
+    }
+     
+  }
+}
