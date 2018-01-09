@@ -8,7 +8,7 @@ pipeline {
     }
     stage('VerifyTools') {
       steps {
-        sh 'sh "docker -v" '
+         sh "docker -v"
       }
     }
   }
