@@ -13,7 +13,7 @@ pipeline {
     }
      stage ('Build app') {
       steps {
-       sh  "docker ps"
+       sh  "ls -a"
 	    }
     }
   }
