@@ -14,7 +14,7 @@ pipeline {
     }
      stage ('Build app') {
       steps {
-       sh  "$WORKSPACE/build_file.sh"
+	      docker { "docker ps "}
 	    }
     }
   }
