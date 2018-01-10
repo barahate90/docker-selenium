@@ -13,7 +13,7 @@ pipeline {
     }
      stage ('Build app') {
       steps {
-       sh  'sudo docker ps'
+       sh  "docker ps"
 	    }
     }
   }
