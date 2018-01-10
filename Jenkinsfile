@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 pipeline {
   agent any
   stages {
@@ -13,7 +14,7 @@ pipeline {
     }
      stage ('Build app') {
       steps {
-       sh  "ls -a"
+       sh  "docker ps"
 	    }
     }
   }
