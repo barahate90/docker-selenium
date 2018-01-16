@@ -14,7 +14,7 @@ pipeline {
     }
      stage ('Build app') {
       steps {
-	     sh 'VERSION=$BUILD_TAG BUILD_ARGS="--build-arg CHROME_VERSION=google-chrome-beta" make standalone_chrome_debug'
+	     sh 'VERSION=$BUILD_TAG BUILD_ARGS="--build-arg CHROME_VERSION=params.$CHROME_VERSION" make standalone_chrome_debug'
 	    }
     }
   }
