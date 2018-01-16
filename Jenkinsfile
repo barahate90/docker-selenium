@@ -25,6 +25,7 @@ pipeline {
 	}
   }
 	stage('docker-compose'){
+	 steps {	
 	sh '''
 		cat > docker-compose.yml <<EOF
 	hub:
@@ -56,7 +57,7 @@ pipeline {
 	
 	'''
 		echo 'not using shell'
-		
+	}	
 	}
 }
 }
