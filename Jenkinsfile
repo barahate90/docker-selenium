@@ -41,10 +41,10 @@ pipeline {
 			- hub
 		volumes:
 			- /dev/shm:/dev/shm
-	firefox$BRANCH_NAME+$BUILD_NUMBER:
+	firefox+$BRANCH_NAME+$BUILD_NUMBER:
 		image: selenium/node-firefox-debug:${FIREFOX_VERSION}
 		restart: always
-		hostname: firefox$BRANCH_NAME+$BUILD_NUMBER
+		hostname: firefox+$BRANCH_NAME+$BUILD_NUMBER
 		ports:
 			- '5943:5900'
 		links:
