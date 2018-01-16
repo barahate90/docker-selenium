@@ -15,11 +15,11 @@ pipeline {
      stage ('Build Image') {
       steps {
 	 sh 'VERSION=${CHROME_VERSION} BUILD_ARGS="--build-arg CHROME_VERSION=${CHROME_VERSION}" make standalone_chrome_debug'
-	 echo 'chrome with specific verison image build "
+	 echo "chrome with specific verison image build "
 	    }
       steps {
 	 sh 'VERSION=${FIREFOX_VERSION} BUILD_ARGS="--build-arg FIREFOX_VERSION=${FIREFOX_VERSION}" make standalone_firefox_debug'
-	 echo 'firefox with specific verison image build "
+	 echo "firefox with specific verison image build "
 	    }
     }
   }
