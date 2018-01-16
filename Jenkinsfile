@@ -27,12 +27,12 @@ pipeline {
 	stage('docker-compose'){
 	cat > docker-compose.yml <<EOF
 	hub:
-		image:'selenium/hub':${GRID_VERSION}
+		image:'selenium/hub:${GRID_VERSION}'
 		restart: always
 		ports:
 		- "4444:4444"
 	chrome:
-		image:'selenium/node-chrome':${CHROME_VERSION}
+		image:'selenium/node-chrome:${CHROME_VERSION}'
 		restart: always
 		hostname: chrome+$BRANCH_NAME+$BUILD_NUMBER
 		ports:
@@ -42,7 +42,7 @@ pipeline {
 		volumes:
 			- /dev/shm:/dev/shm
 	firefox:
-		image: 'selenium/node-firefox-debug':${FIREFOX_VERSION}
+		image: 'selenium/node-firefox-debug:${FIREFOX_VERSION}'
 		restart: always
 		hostname: firefox+$BRANCH_NAME+$BUILD_NUMBER
 		ports:
