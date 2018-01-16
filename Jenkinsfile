@@ -25,7 +25,8 @@ pipeline {
 	}
   }
 	stage('docker-compose'){
-	cat > docker-compose.yml <<EOF
+	sh '''
+		cat > docker-compose.yml <<EOF
 	hub:
 		image:'selenium/hub:${GRID_VERSION}'
 		restart: always
@@ -52,6 +53,10 @@ pipeline {
 		volumes:
 			- '/dev/shm:/dev/shm' 
 	EOF
+	
+	'''
+		echo 'not using shell'
+		
 	}
 }
 }
