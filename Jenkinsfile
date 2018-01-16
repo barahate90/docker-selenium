@@ -12,7 +12,7 @@ pipeline {
          sh "docker -v"
       }
     }
-     stage ('Build app') {
+     stage ('Build Image') {
       steps {
 	 sh 'VERSION=${CHROME_VERSION} BUILD_ARGS="--build-arg CHROME_VERSION=${CHROME_VERSION}" make standalone_chrome_debug'
 	 echo 'chrome with specific verison image build "
