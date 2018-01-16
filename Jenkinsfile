@@ -26,7 +26,7 @@ pipeline {
   }
 	stage('docker-compose'){
 	cat > docker-compose.yml <<EOF
-	hub$BRANCH_NAME+$BUILD_NUMBER:
+	hub+$BRANCH_NAME+$BUILD_NUMBER:
 		image:selenium/hub:${GRID_VERSION}
 		restart: always
 		ports:
