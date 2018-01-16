@@ -40,7 +40,7 @@ pipeline {
 		links:
 			- hub
 		volumes:
-			- /dev/shm:/dev/shm
+			- '/dev/shm:/dev/shm'
 	firefox:
 		image: 'selenium/node-firefox-debug:${FIREFOX_VERSION}'
 		restart: always
@@ -50,7 +50,7 @@ pipeline {
 		links:
 			- hub
 		volumes:
-			- /dev/shm:/dev/shm 
+			- '/dev/shm:/dev/shm' 
 	EOF
 	}
 }
