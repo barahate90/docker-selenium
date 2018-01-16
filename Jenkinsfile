@@ -7,7 +7,7 @@ pipeline {
         git 'https://github.com/barahate90/docker-selenium.git'
       }
     }
-	stage('VerifyTools') {
+    stage('VerifyTools') {
       steps {
          sh "docker -v"
       }
@@ -18,13 +18,13 @@ pipeline {
 		echo "chrome with specific verison image build "
 	}
   }
-	stage ('Build Firefox Image') {
+    stage ('Build Firefox Image') {
       steps {
 		sh 'VERSION=${FIREFOX_VERSION} BUILD_ARGS="--build-arg FIREFOX_VERSION=${FIREFOX_VERSION}" make standalone_firefox_debug'
 		echo "chrome with specific verison image build "
 	}
   }
-	stage('docker-compose'){
+   stage('docker-compose'){
 	 steps {	
 	sh '''
 		cat > docker-compose.yml <<EOF
