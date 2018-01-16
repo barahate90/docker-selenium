@@ -1,0 +1,27 @@
+hub:
+    image: 'selenium/hub:test'
+    restart: always
+    ports:
+        - '32769:4444'
+
+chrome-hub3-4-62:
+    image: 'selenium/node-chrome-debug:test'
+    restart: always
+    hostname: chrome-hub3-4-62
+    ports:
+        - '5941:5900'
+    links:
+        - hub
+    volumes:
+        - /dev/shm:/dev/shm
+
+firefox-hub3-4-57:
+    image: 'selenium/node-firefox-debug:test'
+    restart: always
+    hostname: firefox-hub3-4-56
+    ports:
+        - '5942:5900'
+    links:
+        - hub
+    volumes:
+        - /dev/shm:/dev/shm
