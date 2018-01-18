@@ -32,7 +32,7 @@ hub:
   image: 'selenium/hub:${GRID_VERSION}'
   restart: always
   ports:
-      - '$(HUB_PORT):4444'
+      - '${HUB_PORT}:4444'
 chrome:
   image: 'selenium/node-chrome:${CHROME_VERSION}'
   restart: always
