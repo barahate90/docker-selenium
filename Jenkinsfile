@@ -32,13 +32,13 @@ hub:
   image: 'selenium/hub:${GRID_VERSION}'
   restart: always
   ports:
-      - '4444:4444'
+      - '$(HUB_PORT):4444'
 chrome:
   image: 'selenium/node-chrome:${CHROME_VERSION}'
   restart: always
   hostname: chrome+$BRANCH_NAME+$BUILD_NUMBER
   ports:
-      - '5944:5900'
+      - '5950:5900'
   links:
       - hub
   volumes:
@@ -48,7 +48,7 @@ firefox:
   restart: always
   hostname: firefox+$BRANCH_NAME+$BUILD_NUMBER
   ports:
-      - '5943:5900'
+      - '5951:5900'
   links:
       - hub
   volumes:
