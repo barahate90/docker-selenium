@@ -24,7 +24,7 @@ pipeline {
 		echo "chrome with specific verison image build "
 	}
   }
-   stage('docker-compose'){
+   stage('dynamic-docker-compose'){
 	 steps {	
 	sh '''
 		cat > docker-compose.yml <<EOF
@@ -59,5 +59,11 @@ EOF
 		echo 'not using shell'
 	}	
 	}
+stage('docker-compose-running'){
+	steps {	
+		sh "docker-compose up -d"
+		echo "provisioning the docker-compose environment"
+	}
+}
 }
 }
