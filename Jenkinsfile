@@ -5,11 +5,15 @@ pipeline {
     stage('checkout') {
       steps {
         git 'https://github.com/barahate90/docker-selenium.git'
+	echo "project clonned"
       }
     }
     stage('VerifyTools') {
       steps {
-         sh "docker -v"
+         sh  '''
+	      docker -v
+	      docker-compose -v
+	      '''
       }
     }
     stage ('Build Chrome Image') {
