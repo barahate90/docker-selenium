@@ -68,6 +68,12 @@ stage('docker-compose-running'){
 		sh "docker-compose up -d"
 		echo "provisioning the docker-compose environment"
 	}
+	
 }
+	  stage('report-generator'){
+		  steps{
+		  publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '$WORKSPACE', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+		  }
+	  }
 }
 }
