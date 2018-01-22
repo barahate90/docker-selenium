@@ -72,8 +72,7 @@ stage('docker-compose-running'){
 }
 	  stage('report-generator'){
 		  steps{
-		  publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '$WORKSPACE', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
-		  }
+		 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'htmlreports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])	  }
 	  }
 }
 }
