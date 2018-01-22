@@ -72,7 +72,17 @@ stage('docker-compose-running'){
 }
 	  stage('report-generator'){
 		  steps{
-		 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'htmlreports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])	  }
+		sh '''
+		cat > grid_info.json <<EOF
+{
+"GRID_URL":"http://10.239.34.90:${HUB_PORT}/grid/console",
+"GRID_VERSION" :"${GRID_VERSION}",
+"CHROME_VERSION":"${CHROME_VERSION}",
+"FIREFOX_VERSION":"${FIREFOX_VERSION}"
+}
+		EOF
+	
+	'''
 	  }
 }
 }
