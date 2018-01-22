@@ -86,3 +86,4 @@ stage('docker-compose-running'){
 	  }
 }
 }
+}
