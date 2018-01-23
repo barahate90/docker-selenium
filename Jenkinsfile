@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
-  agent {node {label 'docker-host'}}
+  agent { label 'docker-host'}
   stages {
     stage('checkout') {
       steps {
