@@ -1,13 +1,11 @@
 #!/usr/bin/env groovy
 pipeline {
-  agent { label 'docker-host'}
+  agent { node {
+	  label 'docker-host'
+  	  customWorkspace '/home/akmba5/CBT/jenkins/workspace/docker-selenium'	
+  }
+	}
   stages {
-    stage('checkout') {
-      steps {
-    
-	echo "project clonned"
-      }
-    }
     stage('VerifyTools') {
       steps {
          sh  '''
