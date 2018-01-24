@@ -3,6 +3,13 @@ pipeline {
   agent any
 	
   stages {
+	   stage('checkout') {
+      steps {
+        git 'https://github.com/barahate90/docker-selenium.git'
+	echo "project clonned"
+      }
+    }
+
     stage('VerifyTools') {
       steps {
          sh  '''
