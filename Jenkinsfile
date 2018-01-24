@@ -1,9 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
-  agent { node {
-	  label 'docker-host'
-  	  customWorkspace '/home/akmba5/CBT/jenkins/workspace/docker-selenium'	
-  }
+  agent any
 	}
   stages {
     stage('VerifyTools') {
