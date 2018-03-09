@@ -14,7 +14,7 @@ RUN apt-get update -qqy \
   && apt-get -qqy install \
     locales \
     xvfb \
-  && apt-get autoclean
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 #===================================================
 # Run the following commands as non-privileged user
