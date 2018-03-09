@@ -13,7 +13,7 @@ USER root
 RUN apt-get update -qqy \
   && apt-get -qqy install \
   x11vnc \
-  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+  && sudo apt-get clean
 
 #=================
 # Locale settings
